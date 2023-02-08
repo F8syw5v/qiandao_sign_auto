@@ -3,8 +3,8 @@ name: 中国电信签到
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 */8 * * *"
-#电信经常签到不成功所以让他每八小时执行一下,一天三次
+        - cron: "0 */24 * * *"
+#电信经常签到不成功所以让他每八小时执行一下,一天三次.改为24小时
     watch:
         types: [started]
 
@@ -28,7 +28,7 @@ jobs:
               env:
                   TELECOM_MOBILE: ${{ secrets.TELECOM_MOBILE }}
                   SEND_KEY: ${{ secrets.SEND_KEY }}
-                  PUSH_KEY: ${{ secrets.PUSH_KEY }}
+                  #PUSH_KEY: ${{ secrets.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH }}
                   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN}}
                   PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER}}
